@@ -15,6 +15,7 @@ public struct SkeletonModifier: ViewModifier {
             .animation(animation.type, value: animate)
             .onAppear {
                 DispatchQueue.main.async {
+                    guard !animate else { return }
                     animate.toggle()
                 }
             }
